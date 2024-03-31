@@ -1,4 +1,39 @@
 .container {
   position: absolute;
+
   z-index: 2;
+  width: 100%;
+  height: fit-content;
+  background-color: #9D2135;
+  top: 80px;
+
+  display: flex;
+
+  h1, p {
+    color: white;
+    height: fit-content;
+  }
+}
+
+.columnFirst {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  a {
+    img {
+      height: .7rem;
+    }
+  }
+}
+
+.columnSecond {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.columnLast {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
 }

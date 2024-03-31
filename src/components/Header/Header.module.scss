@@ -6,19 +6,72 @@
 }
 
 .top {
-
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  .logoWrapper {
+    display: flex;
+    width: 200px;
+    justify-content: space-between;
+  }
 }
 
 .bottom {
   display: flex;
-  justify-content: space-around;
-  a {
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.item {
+  color: white;
+  padding: 10px ;
+  cursor: pointer;
+  img {
+    padding-left: 4px;
+    width: 1rem;
+  }
+  &:first-child {
+    padding-left: 0;
+  }
+  &:last-child {
+    padding-right: 0;
+  }
+}
+
+.btnGroup {
+  display: flex;
+  box-sizing: content-box !important;
+  align-items: center;
+  .btn {
+    border-radius: 5px;
+    //height: -moz-fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    padding: 10px 12px;
+    background-color: transparent;
     color: white;
-    padding: 5px 10px;
+    font-size: 14px;
+    border: 1.2px solid white;
     cursor: pointer;
-    img {
-      padding-left: 4px;
-      width: 1rem;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+    &:last-child {
+      margin-right: 0;
+    }
+    &:hover {
+      background-color: white;
+      color: black;
+    }
+  }
+  .button {
+    height: 32px;
+    padding: 10px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.16);
     }
   }
 }

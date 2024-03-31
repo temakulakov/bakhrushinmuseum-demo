@@ -19,12 +19,12 @@ const RootGrid = ({children}: RootGridProps) => {
                 <Slider/>
             </Row>
             <Row justify="center">
-                <Col xs={24} sm={23} md={23} lg={20} xl={20} xxl={20}>
+                <Col xs={24} sm={23} md={23} lg={22} xl={21} xxl={21}>
                     {children}
                 </Col>
             </Row>
             <Row justify="center" className={styles.footer}>
-                <Col xs={24} sm={23} md={23} lg={20} xl={20} xxl={20}>
+                <Col xs={24} sm={23} md={23} lg={22} xl={21} xxl={21}>
                     <Footer/>
                 </Col>
             </Row>

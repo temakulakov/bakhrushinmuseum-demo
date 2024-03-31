@@ -2,7 +2,7 @@ import React from 'react';
 import styles from "./Header.module.scss";
 import {IHeaderColumn} from "../../types";
 import arrow from "../../static/icons/interface/arrow.svg";
-import {AnimatePresence, motion} from "framer-motion";
+import { motion} from "framer-motion";
 import Panel from "./Panel/Panel.tsx";
 import {Col} from "antd";
 
@@ -19,7 +19,7 @@ import translate from './icons/translate.svg';
 const Header: React.FC = () => {
     const [panel, setPanel] = React.useState<IHeaderColumn | null>(null);
     return <>
-        <Col xs={24} sm={23} md={23} lg={20} xl={20} xxl={20}>
+        <Col xs={24} sm={23} md={23} lg={22} xl={22} xxl={21}>
             <div className={styles.container}>
                 <div className={styles.top}>
                     <motion.a className={styles.logoWrapper}>
@@ -53,25 +53,36 @@ const Header: React.FC = () => {
                             draggable={false}
                         />
                     </motion.a>
-                    <img src={eye} alt={eye}/>
-                    <img src={search} alt={eye}/>
-                    <img src={translate} alt={eye}/>
+                    <div className={styles.btnGroup}>
+                        <button className={styles.btn}>{"Магазин"}</button>
+                        <button className={styles.btn}>{"Купить билет"}</button>
+                        <img src={eye} alt={eye} className={styles.button}/>
+                        <img src={search} alt={search} className={styles.button}/>
+                        <img src={translate} alt={translate} className={styles.button}/>
+                        <button className={styles.btn}>{"РУС"}
+                            <svg xmlns="http://www.w3.org/2000/svg" width={"14px"} height={"19px"} fill="none"
+                                 stroke="currentColor"
+                                 strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                                 viewBox="0 0 24 24">
+                                <path d="m6 9 6 6 6-6"></path>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
                 <div className={styles.bottom} onMouseLeave={() => setPanel(null)}>
-                    {menu.map((item, index) => (<a href={item.head.src}
-                                                   key={index}
-                                                   onMouseEnter={() => setPanel(item)}
+                    {menu.map((item, index) => (<a
+                        className={styles.item}
+                        href={item.head.src}
+                        key={index}
+                        onMouseEnter={() => setPanel(item)}
                     >
                         {item.head.title}{item.links && <img src={arrow}/>}
                     </a>))}
+                    <Panel panel={panel}/>
                 </div>
+
             </div>
         </Col>
-        <AnimatePresence>
-            {
-                panel && <Panel panel={panel}/>
-            }
-        </AnimatePresence>
     </>
 };
 
