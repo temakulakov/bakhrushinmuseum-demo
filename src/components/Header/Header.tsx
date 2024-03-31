@@ -1,6 +1,36 @@
 import React from 'react';
 import styles from "./Header.module.scss";
 import {IHeaderColumn} from "../../types";
+import arrow from "../../static/icons/interface/arrow.svg";
+import {AnimatePresence} from "framer-motion";
+import Panel from "./Panel/Panel.tsx";
+
+
+const Header: React.FC = () => {
+    const [ panel, setPanel ] = React.useState<IHeaderColumn | null>(null);
+    return <>
+        <div className={styles.container}>
+            <div className={styles.top}>
+
+            </div>
+            <div className={styles.bottom} onMouseLeave={() => setPanel(null)}>
+                {menu.map((item, index) => (<a href={item.head.src}
+                                               key={index}
+                                               onMouseEnter={() => setPanel(item)}
+                >
+                    {item.head.title}{item.links && <img src={arrow}/>}
+                </a>))}
+            </div>
+        </div>
+        <AnimatePresence>
+            {
+                panel && <Panel panel={panel} />
+            }
+        </AnimatePresence>
+    </>
+};
+
+export default Header;
 
 const menu: IHeaderColumn[] = [
     {
@@ -325,14 +355,3 @@ const menu: IHeaderColumn[] = [
     },
 
 ]
-
-const Header: React.FC = () => {
-    return <div className={styles.container}>
-        <div></div>
-        <div>
-            {menu.map(item => (<a>{item.head.title}</a>))}
-        </div>
-    </div>
-};
-
-export default Header;

@@ -23,6 +23,7 @@ const customTheme: ThemeConfig = {
         colorLink: '#EEEEEF',
         colorPrimary: '#9D2135',
         colorTextBase: '#52565A',
+
     },
 };
 

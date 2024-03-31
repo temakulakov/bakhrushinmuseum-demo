@@ -9,12 +9,14 @@ interface ColumnProps {
 const Column = ({ column }: ColumnProps) => {
     return (
         <div className={styles.container}>
-            <h1>{column.title}</h1>
-            <div className={styles.body}>
-                {column.links.map((link, index) => <a href={`/${link.src}`} key={index}>{link.title}</a>)}
+            <div>
+                <h1>{column.title}</h1>
+                <div className={styles.body}>
+                    {column.links.map((link, index) => <a href={`/${link.src}`} key={index}>{link.title}</a>)}
+                </div>
             </div>
-            <div className={styles.footer}>
-                {/*{column.elements && column.elements?.map((element, index) => <div key={index}></div>)}*/}
+            <div className={styles.bottom}>
+                {column.elements && column.elements?.map((element, index) => <div key={index}>{element}</div>)}
             </div>
         </div>
     )

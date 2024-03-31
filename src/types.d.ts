@@ -20,4 +20,10 @@ interface IFooterColumns {
 interface IHeaderColumn {
     head: IHeaderLink;
     links?: IHeaderColumn[];
-}
+};
+
+interface ISlide {
+    id: number;
+    type: 'image' | 'video';
+    src: string;
+};

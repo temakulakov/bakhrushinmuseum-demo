@@ -11,7 +11,7 @@ body {
 h1, h2, h3 {
   font-family: 'TT Nooks', sans-serif;
   text-transform: uppercase;
-
+  width: fit-content;
   color: #54565A;
 }
 h1 {
@@ -28,7 +28,7 @@ h4, h5, h6, p {
 
 a {
   text-decoration: none;
-  color: black;
+  color: white;
   font-family: 'TT Norms', sans-serif;
 
 }
@@ -51,7 +51,7 @@ button {
 @font-face {
   font-family: 'TT Nooks';
   src: local('TT Nooks Regular'), local('TTNormsPro-Regular'),
-  url('../static/fonts/TTNooks/TTNooksScript-Bold.woff2') format('woff2');
+  url('./static/fonts/TTNooks/TTNooksScript-Bold.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
@@ -59,7 +59,7 @@ button {
 @font-face {
   font-family: 'TT Norms';
   src: local('TT NormsPro Script Bold'), local('TTNormsPro-Regular'),
-  url('../static/fonts/TTNorms/TTNormsPro-Regular.woff2') format('woff2');
+  url('./static/fonts/TTNorms/TTNormsPro-Regular.woff2') format('woff2');
   font-weight: bold;
   font-style: normal;
 }
