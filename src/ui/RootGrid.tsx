@@ -13,9 +13,7 @@ const RootGrid = ({children}: RootGridProps) => {
     return (
         <>
             <Row justify="center" className={styles.header}>
-
                     <Header/>
-
                 <Slider/>
             </Row>
             <Row justify="center">

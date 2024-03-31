@@ -1,11 +1,13 @@
 .container {
   position: absolute;
-
+  border-radius: 5px;
+  left: 0px;
   z-index: 2;
   width: 100%;
   height: fit-content;
-  background-color: #9D2135;
-  top: 80px;
+  background-color: #8B1635;
+  //padding-top: 10px;
+  top: 90px;
 
   display: flex;
 
@@ -13,27 +15,41 @@
     color: white;
     height: fit-content;
   }
+
+  a {
+    padding: 10px 20px;
+    img {
+      height: 1rem;
+      width: 1rem;
+      margin-left: 5px;
+    }
+  }
 }
 
 .columnFirst {
   display: flex;
   flex-direction: column;
   width: 30%;
+  flex: 1;
   a {
     img {
       height: .7rem;
+      width: .8rem;
     }
   }
 }
 
 .columnSecond {
+  padding-left: 100px;
   display: flex;
   flex-direction: column;
   width: 30%;
+  flex: 1;
 }
 
 .columnLast {
+  padding-left: 100px;
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 35%;
 }

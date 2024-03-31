@@ -4,6 +4,7 @@ import video from '../../static/icons/img/promo.mp4';
 import img from '../../static/icons/img/img.png';
 import {useState} from "react";
 import {AnimatePresence, motion} from "framer-motion";
+import filials from './images/filials.png';
 
 const slides: ISlide[] = [
     { id: 1, type: 'video', src: video },
@@ -32,7 +33,15 @@ const Slider = () => {
                          draggable="false"/>
                 )}
             </motion.div>
+            {/*<AnimatePresence>*/}
+                {/*<motion.img*/}
+                {/*    animate={{ width: '300px', height: '1000px', objectFit: 'cover', zIndex: 1311, position: 'absolute', top: 0, right: 0, bottom: 0, left: 0, right: 0, bottom: 0 }}*/}
+                {/*    src={filials}*/}
+                {/*    alt={filials}/>*/}
+            {/*</AnimatePresence>*/}
         </AnimatePresence>
+
+
 
         <button onClick={handlePrev} style={{position: 'absolute', top: '50%', left: 0}}>Prev</button>
         <button onClick={handleNext} style={{position: 'absolute', top: '50%', right: 0}}>Next</button>

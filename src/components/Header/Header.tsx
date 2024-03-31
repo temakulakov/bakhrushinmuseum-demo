@@ -17,10 +17,10 @@ import translate from './icons/translate.svg';
 
 
 const Header: React.FC = () => {
-    const [panel, setPanel] = React.useState<IHeaderColumn | null>(null);
+    const [panel, setPanel] = React.useState<IHeaderColumn | null>(menu[0]);
     return <>
         <Col xs={24} sm={23} md={23} lg={22} xl={22} xxl={21}>
-            <div className={styles.container}>
+            <motion.div className={styles.container} initial={{ opacity: 0, top: 20 }} animate={{ opacity: 1, top: 0, backgroundColor: panel && '#8B1635'  }} exit={{ opacity: 0, top: 20 }}>
                 <div className={styles.top}>
                     <motion.a className={styles.logoWrapper}>
                         <motion.img
@@ -81,7 +81,7 @@ const Header: React.FC = () => {
                     <Panel panel={panel}/>
                 </div>
 
-            </div>
+            </motion.div>
         </Col>
     </>
 };
