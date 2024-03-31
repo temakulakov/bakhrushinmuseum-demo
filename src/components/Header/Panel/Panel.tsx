@@ -24,59 +24,75 @@ const Panel = ({ panel }: Props) => {
             panel && panel?.links && <div className={styles.container}>
                 <div className={styles.columnFirst}>
                     <AnimatePresence>
-                    {panel.links.map((item, index) => {
-                        return  <motion.a key={index}
-                                      initial={{ opacity: 0 }}
-                                      animate={{ opacity: 1 }}
-                                      exit={{ opacity: 0 }}
-                                      href={item.head.src}
-                                      onMouseEnter={() => {
-                                          setActiveElement(item);
-                                          setActiveDescription(item)
-                                      }}>
+                        {panel.links.map((item, index) => {
+                            return <motion.a key={index}
+                                             initial={{opacity: 0}}
+                                             animate={{opacity: 1}}
+                                             exit={{opacity: 0}}
+                                             href={item.head.src}
+                                             onMouseEnter={() => {
+                                                 setActiveElement(item);
+                                                 setActiveDescription(item)
+                                             }}>
                                 {item.head.title}{item.links &&
                                 <img style={{transform: 'rotate(-90deg)'}} src={arrow}/>}
                             </motion.a>
-                    })}
-                        </AnimatePresence>
+                        })}
+                    </AnimatePresence>
                 </div>
                 <Line background={'white'}/>
-                <div className={styles.columnSecond}>
+                <AnimatePresence>
                     {
-                        activeElement && activeElement.links && <AnimatePresence>
+                        activeElement && activeElement.head.title && <motion.div
+                            className={styles.columnSecond}
+                            initial={{opacity: 0, y: 10}}
+                            animate={{opacity: 1, y: 0}}
+                            exit={{opacity: 0, y: 10}}
+                        >
                             {
-                                activeElement.links.map((item, index) =>
-                                    <a href={item.head.src}
-                                       key={index}
-                                       onMouseEnter={() => {
-                                           // setActiveElement(item);
-                                           setActiveDescription(item)
-                                       }}>
-                                        {item.head.title}</a>
-                                )
+                                activeElement && activeElement.links && <AnimatePresence>
+                                    {
+                                        activeElement.links.map((item, index) =>
+                                            <a href={item.head.src}
+                                               key={index}
+                                               onMouseEnter={() => {
+                                                   // setActiveElement(item);
+                                                   setActiveDescription(item)
+                                               }}>
+                                                {item.head.title}</a>
+                                        )
+                                    }
+                                </AnimatePresence>
+
                             }
-                        </AnimatePresence>
-
+                        </motion.div>
                     }
-                </div>
-                <AnimatePresence> activeDescription &&
-
-            </AnimatePresence>
+                </AnimatePresence>
                 <Line background={'white'}/>
-                <div className={styles.columnLast}>
-                    {
-                        activeDescription && <AnimatePresence>
-                            <h1>{activeDescription.head.title}</h1>
-                            <p>{activeDescription.head.description}</p>
-                            <AnimatePresence>
-                                {
-                                    activeDescription.head.src &&
-                                    <img src={activeDescription.head.src} alt={activeDescription.head.title}/>
-                                }
-                            </AnimatePresence>
-                        </AnimatePresence>
-                    }
-                </div>
+
+                <AnimatePresence>
+                    {activeDescription && activeDescription.head && <>
+                        <motion.div
+                            initial={{opacity: 0, y: 10}}
+                            animate={{opacity: 1, y: 0}}
+                            exit={{opacity: 0, y: 10}}
+                            className={styles.columnLast}
+                        >
+                            {
+                                activeDescription && <AnimatePresence>
+                                    <h1>{activeDescription.head.title}</h1>
+                                    <p>{activeDescription.head.description}</p>
+                                    <AnimatePresence>
+                                        {
+                                            activeDescription.head.src &&
+                                            <img src={activeDescription.head.src} alt={activeDescription.head.title}/>
+                                        }
+                                    </AnimatePresence>
+                                </AnimatePresence>
+                            }
+                        </motion.div>
+                    </>}
+                </AnimatePresence>
             </div>
         }
 

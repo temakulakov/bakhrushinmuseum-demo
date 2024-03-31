@@ -4,7 +4,7 @@ import video from '../../static/icons/img/promo.mp4';
 import img from '../../static/icons/img/img.png';
 import {useState} from "react";
 import {AnimatePresence, motion} from "framer-motion";
-import filials from './images/filials.png';
+// import filials from './images/filials.png';
 
 const slides: ISlide[] = [
     { id: 1, type: 'video', src: video },
