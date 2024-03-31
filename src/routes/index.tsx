@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import {Button, Col, Row} from "antd";
+import { Col, Row} from "antd";
 
 export const Route = createFileRoute("/")({
     component: Index,

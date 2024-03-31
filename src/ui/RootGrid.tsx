@@ -1,4 +1,4 @@
-import React, {ReactNode} from 'react';
+import {ReactNode} from 'react';
 import {Col, Row} from "antd";
 import Footer from "../components/Footer/Footer.tsx";
 import Header from "../components/Header/Header.tsx";

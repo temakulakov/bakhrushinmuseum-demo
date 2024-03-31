@@ -14,7 +14,7 @@ const Column = ({ column }: ColumnProps) => {
                 {column.links.map((link, index) => <a href={`/${link.src}`} key={index}>{link.title}</a>)}
             </div>
             <div className={styles.footer}>
-                {column.elements && column.elements?.map((element, index) => <div key={index}></div>)}
+                {/*{column.elements && column.elements?.map((element, index) => <div key={index}></div>)}*/}
             </div>
         </div>
     )
