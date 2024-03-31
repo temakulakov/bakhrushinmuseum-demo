@@ -17,7 +17,7 @@ const Widget = () => {
     const [ button1, setButton1 ] = useState(false);
     const [ button2, setButton2 ] = useState(false);
 
-    const sliderJSX = slides.map((slide, index) => (
+    const sliderJSX = slides.map((slide) => (
         <div
             className={styles.slide}
             style={{backgroundColor: slide.backgroundColor}}

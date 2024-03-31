@@ -12,7 +12,7 @@ interface NewsElementProps {
     image: string;
 }
 
-const NewsElementCompact = ({view, href, date, title, description, image}: NewsElementProps) => {
+const NewsElementCompact = ({date, title, image}: NewsElementProps) => {
     const [hover, setHover] = useState(false);
 
     return <motion.div

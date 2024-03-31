@@ -16,7 +16,7 @@ interface NewsElementProps {
     image: string;
 }
 
-const NewsElement = ({view, href, date, title, description, image}: NewsElementProps) => {
+const NewsElement = ({ date, title, image}: NewsElementProps) => {
     const [ hover, setHover ] = useState(false);
 
     return <motion.div

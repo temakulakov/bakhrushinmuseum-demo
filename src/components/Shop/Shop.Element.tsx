@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Shop.Element.module.scss';
-import { IShop } from "../../interfaces";
 import { motion } from "framer-motion";
+import {IShop} from "../../types";
 
 interface IProps {
     item: IShop;
