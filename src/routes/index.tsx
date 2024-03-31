@@ -1,15 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Col, Row} from "antd";
+import CardList from "../components/Cards/CardList.tsx";
+import Widget from "../components/Widget/Widget.tsx";
+import News from "../components/News/News.tsx";
+import Shop from "../components/Shop/Shop.tsx";
+import Filials from "../components/Filials/Filials.tsx";
 
 export const Route = createFileRoute("/")({
     component: Index,
 });
 
 function Index() {
-    return <Row gutter={[16, 24]} style={{marginTop: '20px'}}>
-        <Col xs={24} sm={12} md={8} lg={6} xl={4}>
-          Это телоwefwefwef
-        </Col>
-    </Row>
+    return <div>;
+            <CardList/>
+            <Widget/>
+            <News/>
+            <Widget/>
+            <Shop/>
+            <Filials/>
+    </div>
 
 }

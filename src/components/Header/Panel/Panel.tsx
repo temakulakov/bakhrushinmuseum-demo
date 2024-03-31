@@ -52,7 +52,7 @@ const Panel = ({ panel }: Props) => {
                 <AnimatePresence>
                     {
                         activeElement  && <motion.div
-                            key={activeElement.head.title}
+                            // key={activeElement.head.title}
                             className={styles.columnSecond}
                             initial={{opacity: 0, y: 10}}
                             animate={{opacity: 1, y: 0}}

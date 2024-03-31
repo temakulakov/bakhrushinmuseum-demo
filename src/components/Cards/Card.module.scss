@@ -1,0 +1,29 @@
+.wrapper {
+  color: #52565A;
+  cursor: pointer;
+  transition: background-color .2s ease-in-out;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.image {
+}
+
+.date {
+  margin-top: 25px;
+}
+
+.title {
+
+}
+
+.position {
+  svg {
+    margin-right: 6px;
+  }
+}
+
+.type {
+
+}
