@@ -2,29 +2,74 @@ import React from 'react';
 import styles from "./Header.module.scss";
 import {IHeaderColumn} from "../../types";
 import arrow from "../../static/icons/interface/arrow.svg";
-import {AnimatePresence} from "framer-motion";
+import {AnimatePresence, motion} from "framer-motion";
 import Panel from "./Panel/Panel.tsx";
+import {Col} from "antd";
+
+import BMLogoLeft from "../../static/icons/logo/BMLogoLeft.svg";
+import BMLogoLine from "../../static/icons/logo/BMLogoLine.svg";
+import BMLogoRight from "../../static/icons/logo/BMLogoRight.svg";
+import BMText from "../../static/icons/logo/BMText.svg";
+
+import eye from './icons/eye.svg';
+import search from './icons/search.svg';
+import translate from './icons/translate.svg';
 
 
 const Header: React.FC = () => {
-    const [ panel, setPanel ] = React.useState<IHeaderColumn | null>(null);
+    const [panel, setPanel] = React.useState<IHeaderColumn | null>(null);
     return <>
-        <div className={styles.container}>
-            <div className={styles.top}>
-
+        <Col xs={24} sm={23} md={23} lg={20} xl={20} xxl={20}>
+            <div className={styles.container}>
+                <div className={styles.top}>
+                    <motion.a className={styles.logoWrapper}>
+                        <motion.img
+                            initial={{opacity: 0, x: 30}}
+                            animate={{opacity: 1, x: 0}}
+                            src={BMLogoLeft}
+                            alt="BMLogoLeft"
+                            draggable={false}
+                        />
+                        <motion.img
+                            initial={{opacity: 0}}
+                            animate={{opacity: 1}}
+                            src={BMLogoLine}
+                            alt="BMLogoLine"
+                            draggable={false}
+                        />
+                        <motion.img
+                            initial={{opacity: 0, x: -30}}
+                            animate={{opacity: 1, x: 0}}
+                            src={BMLogoRight}
+                            alt="BMLogoRight"
+                            draggable={false}
+                        />
+                        <motion.img
+                            className={styles.stylesLogo}
+                            initial={{opacity: 0, x: -30}}
+                            animate={{opacity: 1, x: 0}}
+                            src={BMText}
+                            alt="BMText"
+                            draggable={false}
+                        />
+                    </motion.a>
+                    <img src={eye} alt={eye}/>
+                    <img src={search} alt={eye}/>
+                    <img src={translate} alt={eye}/>
+                </div>
+                <div className={styles.bottom} onMouseLeave={() => setPanel(null)}>
+                    {menu.map((item, index) => (<a href={item.head.src}
+                                                   key={index}
+                                                   onMouseEnter={() => setPanel(item)}
+                    >
+                        {item.head.title}{item.links && <img src={arrow}/>}
+                    </a>))}
+                </div>
             </div>
-            <div className={styles.bottom} onMouseLeave={() => setPanel(null)}>
-                {menu.map((item, index) => (<a href={item.head.src}
-                                               key={index}
-                                               onMouseEnter={() => setPanel(item)}
-                >
-                    {item.head.title}{item.links && <img src={arrow}/>}
-                </a>))}
-            </div>
-        </div>
+        </Col>
         <AnimatePresence>
             {
-                panel && <Panel panel={panel} />
+                panel && <Panel panel={panel}/>
             }
         </AnimatePresence>
     </>
