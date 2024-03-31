@@ -3,7 +3,7 @@ import {IHeaderColumn} from "../../../types";
 import {AnimatePresence, motion} from "framer-motion";
 import {useEffect, useState} from "react";
 import arrow from "../../../static/icons/interface/arrow.svg";
-import Line from "../Line/Line.tsx";
+// import Line from "../Line/Line.tsx";
 
 
 interface Props {
@@ -21,7 +21,13 @@ const Panel = ({ panel }: Props) => {
     }, [panel]);
     return <AnimatePresence>
         {
-            panel && panel?.links && <div className={styles.container}>
+            panel && panel?.links && <motion.div
+                key={panel.head.title}
+            initial={{ opacity: 0, y: 27, width: '95%' }}
+            animate={{ opacity: 1, y: 33, width: '100%' }}
+            exit={{ opacity: 0, y: 27, width: '95%' }}
+                className={styles.container}
+            >
                 <div className={styles.columnFirst}>
                     <AnimatePresence>
                         {panel.links.map((item, index) => {
@@ -40,10 +46,13 @@ const Panel = ({ panel }: Props) => {
                         })}
                     </AnimatePresence>
                 </div>
-                <Line background={'white'}/>
+
+                {/*<Line background={'white'}/>*/}
+
                 <AnimatePresence>
                     {
-                        activeElement && activeElement.head.title && <motion.div
+                        activeElement  && <motion.div
+                            key={activeElement.head.title}
                             className={styles.columnSecond}
                             initial={{opacity: 0, y: 10}}
                             animate={{opacity: 1, y: 0}}
@@ -68,11 +77,13 @@ const Panel = ({ panel }: Props) => {
                         </motion.div>
                     }
                 </AnimatePresence>
-                <Line background={'white'}/>
+
+                {/*<Line background={'white'}/>*/}
 
                 <AnimatePresence>
                     {activeDescription && activeDescription.head && <>
                         <motion.div
+                            key={activeDescription.head.title}
                             initial={{opacity: 0, y: 10}}
                             animate={{opacity: 1, y: 0}}
                             exit={{opacity: 0, y: 10}}
@@ -80,11 +91,13 @@ const Panel = ({ panel }: Props) => {
                         >
                             {
                                 activeDescription && <AnimatePresence>
-                                    <h1>{activeDescription.head.title}</h1>
-                                    <p>{activeDescription.head.description}</p>
+                                    <div>
+                                        <h1>{activeDescription.head.title}</h1>
+                                        <p>{activeDescription.head.description}</p>
+                                    </div>
                                     <AnimatePresence>
                                         {
-                                            activeDescription.head.src &&
+                                        activeDescription.head.src &&
                                             <img src={activeDescription.head.src} alt={activeDescription.head.title}/>
                                         }
                                     </AnimatePresence>
@@ -93,7 +106,7 @@ const Panel = ({ panel }: Props) => {
                         </motion.div>
                     </>}
                 </AnimatePresence>
-            </div>
+            </motion.div>
         }
 
     </AnimatePresence>
